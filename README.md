@@ -1,48 +1,53 @@
-# Sprint-14-Project
-Machine larning for texts
-Project Overview
+--Project Overview
 
-The goal of this project was to predict customer churn for a telecom company. By identifying customers likely to leave, the company can take proactive retention measures and reduce revenue loss.
+This project analyzes movie reviews to predict whether a review expresses a positive or negative sentiment.
+Using Natural Language Processing (NLP) and machine learning, the goal was to build a model capable of classifying sentiment automatically based on the text content of reviews.
+This work was completed as part of the TripleTen Data Science Program.
 
-This project was part of the TripleTen Data Science Program.
+--Data Description
 
-Data
+The dataset consists of thousands of movie reviews labeled as positive or negative.
+Each review is a line of free text that expresses an opinion about a film.
 
-The dataset included:
+--Key columns include:
+review — the movie review text
+pos — the target variable (1 = positive, 0 = negative)
 
-Customer contract details (type, start/end dates, payment method)
-Internet services (DSL, fiber optic, security, backup, etc.)
-Customer demographics (tenure, monthly charges, total charges)
-Target variable: Churn (Yes/No)
-
-Methodology
+--Project Steps
 
 Data Preprocessing
-Converted EndDate = "No" into active contracts.
-Handled missing values in numerical and categorical fields.
-One-hot encoded categorical variables.
-Standardized numerical features.
+Removed HTML tags and punctuation.
+Lowercased all text and tokenized it.
+Removed stopwords using nltk and spaCy.
+Applied lemmatization for word normalization.
 
-Model Training
+--Feature Engineering
 
-Tried Logistic Regression, Random Forest, and Gradient Boosting.
-Balanced the dataset with SMOTE to address class imbalance.
-Evaluated models with F1-score (threshold ≥ 0.59) and ROC-AUC.
+Transformed text using TF–IDF Vectorization to capture word importance.
 
-Model Selection
+--Model Training
 
-Selected the model that achieved the best balance between recall and precision.
+Trained several classifiers:
+Logistic Regression
+Random Forest Classifier
+LightGBM Classifier
+Tuned hyperparameters using cross-validation.
 
-Results
+--Evaluation
 
-Final model: Random Forest Classifier (after hyperparameter tuning)
-F1-score: ~0.60 (met requirement)
-ROC-AUC: ~0.85
+Measured model performance using:
+Accuracy
+Precision
+Recall
 
-Business impact: enables the telecom company to identify high-risk customers and take actions such as discounts, loyalty rewards, or targeted outreach.
+F1-score (target ≥ 0.85)
 
-Tech Stack
+--Results
+Best Model: Logistic Regression with TF–IDF features
 
-Python (pandas, NumPy, scikit-learn)
-Jupyter Notebook
-Matplotlib / Seaborn for visualization
+F1-score: ~0.88 (met and exceeded target)
+
+The model successfully distinguishes between positive and negative reviews.
+
+Business Value:
+This model could be integrated into a review monitoring system to automatically flag negative customer sentiment for analysis and response.
