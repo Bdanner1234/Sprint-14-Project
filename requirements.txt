@@ -1,9 +1,6 @@
-numpy
-pandas
-matplotlib
-seaborn
+Python 3.10
+pandas, NumPy
 scikit-learn
-nltk
-spacy
-tqdm
-lightgbm
+nltk, spaCy
+LightGBM
+tqdm, matplotlib, seaborn
